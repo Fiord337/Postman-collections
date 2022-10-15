@@ -1,0 +1,338 @@
+{
+	"info": {
+		"_postman_id": "9deb7211-be6b-477c-ae30-24a9bdaf88df",
+		"name": "Trello API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23599444"
+	},
+	"item": [
+		{
+			"name": "create a board",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function(){",
+							"pm.response.to.have.status(200)",
+							"})",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{BaseTrelloUrl}}/1/boards/?name=Creatin'aboard&key=dc83ffeb418a5db58ddc324c9e8c2d2c&token=c5c8dd45c51b501386881fa213b802d7966ad35d10a5dca8b3132f032946e237",
+					"host": [
+						"{{BaseTrelloUrl}}"
+					],
+					"path": [
+						"1",
+						"boards",
+						""
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "Creatin'aboard"
+						},
+						{
+							"key": "key",
+							"value": "dc83ffeb418a5db58ddc324c9e8c2d2c"
+						},
+						{
+							"key": "token",
+							"value": "c5c8dd45c51b501386881fa213b802d7966ad35d10a5dca8b3132f032946e237"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create a list",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{BaseTrelloUrl}}/1/boards/6349407af3d181013c411cbc/lists?name=Create_a_list&key={{key}}&token={{token}}",
+					"host": [
+						"{{BaseTrelloUrl}}"
+					],
+					"path": [
+						"1",
+						"boards",
+						"6349407af3d181013c411cbc",
+						"lists"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "Create_a_list"
+						},
+						{
+							"key": "key",
+							"value": "{{key}}"
+						},
+						{
+							"key": "token",
+							"value": "{{token}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get lists' Id's",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BaseTrelloUrl}}/1/boards/6349407af3d181013c411cbc/lists?key={{key}}&token={{token}}",
+					"host": [
+						"{{BaseTrelloUrl}}"
+					],
+					"path": [
+						"1",
+						"boards",
+						"6349407af3d181013c411cbc",
+						"lists"
+					],
+					"query": [
+						{
+							"key": "key",
+							"value": "{{key}}"
+						},
+						{
+							"key": "token",
+							"value": "{{token}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Archive list (delete)",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "closed",
+							"value": "true",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{BaseTrelloUrl}}/1/lists/634948416275e0006f5a240c?key={{key}}&token={{token}}",
+					"host": [
+						"{{BaseTrelloUrl}}"
+					],
+					"path": [
+						"1",
+						"lists",
+						"634948416275e0006f5a240c"
+					],
+					"query": [
+						{
+							"key": "key",
+							"value": "{{key}}"
+						},
+						{
+							"key": "token",
+							"value": "{{token}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create card",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{BaseTrelloUrl}}/1/cards?idList=6349407af3d181013c411cc3&key={{key}}&token={{token}}",
+					"host": [
+						"{{BaseTrelloUrl}}"
+					],
+					"path": [
+						"1",
+						"cards"
+					],
+					"query": [
+						{
+							"key": "idList",
+							"value": "6349407af3d181013c411cc3"
+						},
+						{
+							"key": "key",
+							"value": "{{key}}"
+						},
+						{
+							"key": "token",
+							"value": "{{token}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update a card",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "{{BaseTrelloUrl}}/1/cards/6349c072455aee03d30a412d?key={{key}}&token={{token}}&name=Funny_card&color=orange&size=full",
+					"host": [
+						"{{BaseTrelloUrl}}"
+					],
+					"path": [
+						"1",
+						"cards",
+						"6349c072455aee03d30a412d"
+					],
+					"query": [
+						{
+							"key": "key",
+							"value": "{{key}}"
+						},
+						{
+							"key": "token",
+							"value": "{{token}}"
+						},
+						{
+							"key": "name",
+							"value": "Funny_card"
+						},
+						{
+							"key": "color",
+							"value": "orange"
+						},
+						{
+							"key": "size",
+							"value": "full"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete a card",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{BaseTrelloUrl}}/1/cards/6349c072455aee03d30a412d?key={{key}}&token={{token}}",
+					"host": [
+						"{{BaseTrelloUrl}}"
+					],
+					"path": [
+						"1",
+						"cards",
+						"6349c072455aee03d30a412d"
+					],
+					"query": [
+						{
+							"key": "key",
+							"value": "{{key}}"
+						},
+						{
+							"key": "token",
+							"value": "{{token}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete a board",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{BaseTrelloUrl}}/1/boards/6349407af3d181013c411cbc?key={{key}}&token={{token}}",
+					"host": [
+						"{{BaseTrelloUrl}}"
+					],
+					"path": [
+						"1",
+						"boards",
+						"6349407af3d181013c411cbc"
+					],
+					"query": [
+						{
+							"key": "key",
+							"value": "{{key}}"
+						},
+						{
+							"key": "token",
+							"value": "{{token}}"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "key",
+			"value": "dc83ffeb418a5db58ddc324c9e8c2d2c",
+			"type": "string"
+		},
+		{
+			"key": "token",
+			"value": "c5c8dd45c51b501386881fa213b802d7966ad35d10a5dca8b3132f032946e237",
+			"type": "string"
+		}
+	]
+}
